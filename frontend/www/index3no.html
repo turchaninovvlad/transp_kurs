@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<title>My Website</title>
+		<link rel="stylesheet" href="css/styles.css" type="text/css">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300" type="text/css">
+	</head>
+	<body>
+		<div class="icons">
+			<div id="BackToOrdersIcon">
+				<a onclick="fn1()">
+					<img src="C:/Users/Forend/Desktop/Kursach2Kurs/www/images/back_yzq4k2wz2yq7.svg" alt="Back">
+				</a>
+			</div>
+			<a href="#">
+			  <img src="C:/Users/Forend/Desktop/Kursach2Kurs/www/images/personal_profile_7h89lwl6u7q3.svg" alt="Profile">
+			</a>
+			<a href="#">
+			  <img src="C:/Users/Forend/Desktop/Kursach2Kurs/www/images/settings_m64z39rezsrx.svg" alt="Settings">
+			</a>
+			<a href="C:/Users/Forend/Desktop/Kursach2Kurs/www/index1no.html" class="icon-logout">
+			  <img src="C:/Users/Forend/Desktop/Kursach2Kurs/www/images/logout_qfr9ahi2woil.svg" alt="Logout">
+			</a>
+		</div>
+
+		<div id="OrdersPart">
+			<h1>Заказы</h1>
+
+	  		<div class="container">
+    			<div class="order-list">
+      			<!-- Order list will be populated here -->
+    			</div>
+	    		<div class="order-buttons">
+    	  			<!--<button class="order-button" id="order1">Заказ 1</button>
+      				<button class="order-button" id="order2">Заказ 2</button>
+      				<button class="order-button" id="order3">Заказ 3</button>
+      				...-->
+					<button class="order-button" onclick="ShowOrderInformation (1, 'Описание первого заказа', 4, [11, 22, 33, 44]), fn2()" id="order1">Заказ 1</button>	
+	    		</div>
+    			<button class="create-order-button" id="create-order-button">+</button>
+  			</div>
+
+			<!--Создаёт страницу заказа-->
+			<div id="create-order-page" style="display:none;">
+			    <h1>Создание заказа</h1>
+			    <form>
+			    	<input type="text" placeholder="Введите номер заказа">
+    				<label>Количество этапов:</label>
+    				<select id="step-count-select">
+        				<option value="1">1</option>
+        				<option value="2">2</option>
+						<option value="3">3</option>
+        				<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+    				</select>
+    				<div class="steps">
+        			<!-- Step input fields will be populated here -->
+      				</div>
+      				<textarea placeholder="Описание заказа"></textarea>
+      				<button class="create-order-button">Создать заказ</button>
+    			</form>
+  			</div>
+		</div>
+
+		<div id="Order">
+
+		</div>
+
+		<!-- Попытка выводить инфу о заказе
+		<div>
+			<h2>Заказ <span id="order-number"></span></h2>
+			<label><input type="checkbox" name="step-1">Этап 1</label>
+			<label><input type="checkbox" name="step-2">Этап 2</label>
+			<label><input type="checkbox" name="step-3">Этап 3</label>
+			<textarea id="order-description"></textarea>
+		</div>-->
+
+  		<script> //Скрипт для первого div'а со списком заказов и созданием заказа.
+    		//Выводит меню создания заказа когда нажата кномка "+".
+    		document.getElementById("create-order-button").addEventListener("click", function() {
+    			document.getElementById("create-order-page").style.display = "block";
+    		});
+
+    		//Добавляет новый заказ в список.
+			document.getElementById("create-order-page").addEventListener("submit", function(event) {
+				event.preventDefault();
+				var orderNumber = document.querySelector("#create-order-page input[type=text]").value;  //Переменная с номером заказа.
+				var orderStepCount = parseInt(document.getElementById("step-count-select").value);      //Переменная с количеством этапов заказа.
+				var orderDescription = document.querySelector("#create-order-page textarea").value;     //Переменная с описанием заказа.
+				var orderList = document.querySelector(".order-list");
+				var newOrder = document.createElement("button");
+				var stepsDescriptionArray = [];
+
+				// Get the step inputs
+				var stepInputs = document.querySelectorAll(".step-input");
+				for (var i = 0; i < stepInputs.length; i++) {
+					// Add the step description to the array
+    				stepsDescriptionArray.push(stepInputs[i].value);
+				}
+				newOrder.textContent = `Заказ ${orderNumber}`;
+				newOrder.classList.add("order-button");
+				orderList.appendChild(newOrder);
+				document.getElementById("create-order-page").style.display = "none";
+				alert("Order number: " + orderNumber + "\nSteps: " + orderStepCount + "\nOrder description: " + orderDescription + "\nSteps Description: " + stepsDescriptionArray);
+			});
+
+    		//Динамическое создание полей ввода шагов.
+    		document.getElementById("step-count-select").addEventListener("change", function() {
+    			var stepCount = parseInt(document.getElementById("step-count-select").value);
+    			var stepInputs = document.querySelectorAll(".step-input");
+    			if (stepInputs.length > stepCount) {
+        			//Удаляет лишние поля ввода.
+        			for (var i = stepInputs.length - 1; i >= stepCount; i--) {
+        				stepInputs[i].remove();
+        			}
+    			} else if (stepInputs.length < stepCount) {
+        			//Добавляет новые поля ввода.
+        			for (var i = stepInputs.length; i < stepCount; i++) {
+        				var newInput = document.createElement("input");
+        				newInput.type = "text";
+        				newInput.placeholder = `Этап ${i + 1}`;
+        				newInput.classList.add("step-input");
+        				document.querySelector(".steps").appendChild(newInput);
+        			}
+    			}
+    		});
+			var stepsDescriptionArray = [];
+			for (var i = stepInputs.length; i < stepCount; i++) {
+				var newInput = document.createElement("input");
+				newInput.type = "text";
+				newInput.placeholder = `Этап ${i + 1}`;
+				newInput.classList.add("step-input");
+				document.querySelector(".steps").appendChild(newInput);
+				stepInputsArray.push(newInput); // добавляем новый input в массив
+			}
+
+			//Скрывает инфу о  заказе и кнопку назад и показывает меню заказов. Используется для кнопки назад.
+			function fn1() {
+				document.getElementById("OrdersPart").style.display = "block";
+				document.getElementById("BackToOrdersIcon").style.display = "none";
+				document.getElementById("Order").style.display = "none";
+			}
+			//Скрывает меню заказов и показывает информацию о заказе и кнопку назад. Используется для кнопок заказов. 
+			function fn2() {
+				document.getElementById("OrdersPart").style.display = "none";
+				document.getElementById("BackToOrdersIcon").style.display = "block";
+				document.getElementById("Order").style.display = "block";
+			}
+
+  		</script>
+  
+		<script>//Скрипт для втогого div'а с информацией о заказе.
+			function ShowOrderInformation (x, y, z, w) {
+				var orderId = x; // замените на пришедший номер заказа
+				var orderDescription = y; // замените на пришедшее описание заказа
+				var checkBoxCount = z; // замените на пришедшее количество чекбоксов
+				let StepsDescription = w;
+
+				document.getElementById("Order").innerHTML = `
+    				<h2>Заказ ${orderId}</h2>
+    				<div class="checkBoxes">
+    					${Array(checkBoxCount).fill(0).map((_, i) => `<label><input type="checkbox" id="checkBox${i+1}"> ${StepsDescription[i]}</label>`).join("")}
+    				</div>
+    				<textarea readonly>${orderDescription}</textarea>
+				`;
+			}
+		</script>
+	</body>
+</html>

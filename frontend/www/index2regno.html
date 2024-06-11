@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<title>My Website</title>
+		<link rel="stylesheet" href="css/styles.css" type="text/css">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300" type="text/css">
+	</head>
+	<body>
+		<!-- <h1><Название></h1>
+		<h2 style="color: red;">ВНИМАНИЕ!!!</h2>
+		<h2 style="color: red;">Не используйте логины и пароли от банковских приложений или социальных сетей, мы не занимались безопасностью.</h2>
+  		<div class="container">
+    		<form>
+      			<input type="email" placeholder="Email" id="Email">
+      			<input type="text" placeholder="Name" id="Name">
+      			<input type="text" placeholder="Password" id="Password"><br>
+				<label><input type="checkbox" name="Agreement">Согласен на обработку персональных данных</label>
+				<div class="select-role">
+					<select name="role" id="Role">
+					  <option value="">Выберите роль</option>
+					  <option value="customer">Заказчик</option>
+					  <option value="driver">Водитель</option>
+					  <option value="loader">Грузчик</option>
+					  <option value="warehouseman">Кладовщик</option>
+					</select>
+				</div>
+    		</form>
+    		<button class="button" name="reg" onclick="location.href='#'" style="width: 200px; height: 40px;">Регистрация</button>
+    		<button class="button" onclick="location.href='C:/Users/Forend/Desktop/Kursach2Kurs/www/index2loginno.html'" style="width: 100px; height: 30px;">Вход</button> -->
+			<h1><Название></h1>
+			<h2 style="color: red;">ВНИМАНИЕ!!!</h2>
+			<h2 style="color: red;">Не используйте логины и пароли от банковских приложений или социальных сетей, мы не занимались безопасностью.</h2>
+  			<div class="container">
+    			<form>
+      				<input type="email" placeholder="Email" id="EmailCus">
+      				<input type="text" placeholder="User Name" id="NameRegCus">
+      				<input type="text" placeholder="Password" id="PasswordRegCus">
+					<input type="text" placeholder="Firstname" id="FirstnameRegCus">
+					<input type="text" placeholder="Lastname" id="LastnameRegCus">
+					<input type="text" placeholder="Patronymic" id="PatronymicRegCus">
+					<input type="text" placeholder="Bank card" id="BankCardRegCus">
+					<input type="text" placeholder="Passport" id="PassportRegCus">
+					<br>
+					<label><input type="checkbox" name="agreementCus">Согласен на обработку персональных данных</label>
+    			</form>
+    			<button class="button" name="regCus" onclick="location.href='#'" style="width: 200px; height: 40px;">Регистрация</button>
+				<br>
+				<button class="button" onclick="OpenRegPageWorker()" style="width: 150px; height: 35px;">Зарегистрироваться как сотрудник</button>
+    			<button class="button" onclick="OpenLogInPage()" style="width: 100px; height: 35px;">Вход</button>
+			</div>
+		</div>
+		<script>
+			document.querySelector("button[name='reg']").addEventListener("click", function() {
+    			var checkbox = document.querySelector("input[type='checkbox'][name='Agreement']");
+   	 			if (checkbox.checked) {
+      				var email = document.getElementById("Email").value;
+					var name = document.getElementById("Name").value;
+					var password = document.getElementById("Password").value;
+					var role = document.getElementById("Role").value;
+
+      				alert("Email: " + email + "\nName: " + name + "\nPassword: " + password + "\nRole: " + role);
+					//window.location.href = 'C:/Users/Forend/Desktop/Kursach2Kurs/www/index3no.html';
+    			} else {
+      				alert("Пожалуйста согласитесь на обработку персональных данных");
+    			}
+  			});
+		</script>
+		<script>
+			document.querySelector("button[name='regCus']").addEventListener("click", function() {
+  var checkbox = document.querySelector("input[type='checkbox'][name='agreementCus']");
+  if (checkbox.checked) {
+    var data = {
+      "username": document.getElementById("NameRegCus").value,
+      "password": document.getElementById("PasswordRegCus").value,
+      "mail": document.getElementById("EmailCus").value,
+      "firstname": document.getElementById("FirstnameRegCus").value,
+      "lastname": document.getElementById("LastnameRegCus").value,
+      "patronymic": document.getElementById("PatronymicRegCus").value,
+      "bank_card": document.getElementById("BankCardRegCus").value,
+      "passport": document.getElementById("PassportRegCus").value
+    };
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'https://fb10-46-39-34-119.ngrok-free.app/register_customer/', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify(data));
+    
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        var response = xhr.responseText;
+        alert(response);
+        if (response.includes("Customer created successfully!")) {
+          alert("Вы успешно зарегистрировались");
+        } else {
+          alert("Ошибка: проверьте введённые данные");
+        }
+      } else {
+        alert("Ошибка регистрации");
+      }
+    };
+    
+    xhr.onerror = function() {
+      alert("Ошибка при отправке запроса");
+    };
+  } else {
+    alert("Пожалуйста согласитесь на обработку персональных данных");
+  }
+});
+		  </script>
+	</body>
+</html>

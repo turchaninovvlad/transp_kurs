@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<title>My Website</title>
+		<link rel="stylesheet" href="css/styles.css" type="text/css">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300" type="text/css">
+	</head>
+	<body>
+		<h1><Название></h1>
+  		<div class="container">
+    		<form>
+      			<input type="text" placeholder="Name" id="Name">
+      			<input type="email" placeholder="Password" id="Password">
+			</form>
+    		<button class="button" name="login" onclick="location.href='#'" style="width: 200px; height: 40px;">Вход</button> <!--C:/Users/Forend/Desktop/Kursach2Kurs/www/index3no.html-->
+    		<button class="button" onclick="location.href='C:/Users/Forend/Desktop/Kursach2Kurs/www/index2regno.html'" style="width: 100px; height: 30px;">Регистрация</button>
+  		</div>
+		<script>
+			document.querySelector("button[name='login']").addEventListener("click", function() {
+			  var name = document.getElementById("Name").value;
+			  var password = document.getElementById("Password").value;
+		  
+			  window.alert(`Name: ${name}\nPassword: ${password}`);
+			});
+		</script>
+
+<script>
+	document.querySelector("button[name='login']").addEventListener("click", function() {
+    var name = document.getElementById("Name").value;
+    var password = document.getElementById("Password").value;
+
+    if (name === "" || password === "") {
+      alert("Все поля должны быть заполнены");
+      return;
+    }
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'https://fb10-46-39-34-119.ngrok-free.app/authenticate/', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify({ "username": name, "password": password }));
+
+    xhr.onload = function() {
+  if (xhr.status === 200) {
+    var response = xhr.responseText;
+    alert(response);
+    if (response.includes("User authenticated successfully!")) {
+      alert("Вы успешно вошли");
+    } else {
+      alert("Неверный логин или пароль");
+    }
+  } else {
+    alert("Ошибка авторизации");
+  }
+};
+
+    xhr.onerror = function() {
+      alert("Ошибка при отправке запроса");
+    };
+  });
+  </script>
+	</body>
+</html>

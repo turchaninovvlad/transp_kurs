@@ -1,0 +1,968 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<title>My Website</title>
+		<link rel="stylesheet" href="css/styles.css" type="text/css">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300" type="text/css">
+		<script>
+			var name; // Служебная переменная
+			var role_now; // Служебная переменная
+			const url = 'https://fd24-2a03-d000-4382-84e2-b164-7e8f-2417-b368.ngrok-free.app/'; // Сюда надо вставить текущий адрес сервера
+		</script>
+	</head>
+	<body>
+
+		<script> //Скрипт, который при входе на сайт закрывает всё, кроме первой страницы
+			window.addEventListener('load', () => {
+				OpenFirstPage();
+			});
+		</script>
+
+		<!--Иконки-кнопки-->
+		<div class="icons">
+			<div id="BackToOrdersIcon">
+				<a onclick="OpenOrdersPart()">
+					<img src="C:/Users/Forend/Desktop/Kursach2Kurs/www/images/back_yzq4k2wz2yq7.svg" alt="Back">
+				</a>
+			</div>
+			<div id="3Icons">
+				<a href="#">
+					<img src="C:/Users/Forend/Desktop/Kursach2Kurs/www/images/personal_profile_7h89lwl6u7q3.svg" alt="Profile">
+				</a>
+				<a href="#">
+					<img src="C:/Users/Forend/Desktop/Kursach2Kurs/www/images/settings_m64z39rezsrx.svg" alt="Settings">
+				</a>
+				<a onclick="OpenFirstPage()" class="icon-logout">
+					<img src="C:/Users/Forend/Desktop/Kursach2Kurs/www/images/logout_qfr9ahi2woil.svg" alt="Logout">
+				</a>
+			</div>
+		</div>
+
+		<!-- Первая страница -->
+		<div id="FirstPagePart">
+			<h1><Название></h1>
+			<div class="logo">
+				<img src="C:/Users/Forend/Desktop/Kursach2Kurs/www/images/cargo_0az3wx8ybcof.svg" alt="Logo" width="200" height="200">
+			</div>
+			<button class="button" onclick="OpenRegPageRole()" style="width: 150px; height: 40px;">Регистрация</button>
+			<button class="button" onclick="OpenLogInPage()" style="width: 150px; height: 40px;">Вход</button>
+			<button class="button" onclick="OpenOrdersPart()" style="width: 150px; height: 40px;">OpenOrdersPart</button>
+		</div>
+
+		<!--Страница выбора направления регистрации-->
+		<div id="RegPageRolePart">
+			<h1><Название></h1>
+			<h2 style="color: red;">ВНИМАНИЕ!!!</h2>
+			<h2 style="color: red;">Не используйте логины и пароли от банковских приложений или социальных сетей, мы не занимались безопасностью.</h2>
+  			<div class="container">
+    			<button class="button" onclick="OpenRegPageCustomer()" style="width: 200px; height: 40px;">Зарегистрироваться как клиент</button>
+				<button class="button" onclick="OpenRegPageWorker()" style="width: 200px; height: 40px;">Зарегистрироваться как сотрудник</button>
+				<br>
+    			<button class="button" onclick="OpenLogInPage()" style="width: 100px; height: 30px;">Вход</button>
+			</div>
+		</div>
+
+		<!--Страница регистрации клиента-->
+		<div id="RegPageCustomerPart">
+			<h1><Название></h1>
+			<h2 style="color: red;">ВНИМАНИЕ!!!</h2>
+			<h2 style="color: red;">Не используйте логины и пароли от банковских приложений или социальных сетей, мы не занимались безопасностью.</h2>
+  			<div class="container">
+    			<form>
+      				<input type="email" placeholder="Email" id="EmailCus">
+      				<input type="text" placeholder="User Name" id="NameRegCus">
+      				<input type="text" placeholder="Password" id="PasswordRegCus">
+					<input type="text" placeholder="Firstname" id="FirstnameRegCus">
+					<input type="text" placeholder="Lastname" id="LastnameRegCus">
+					<input type="text" placeholder="Patronymic" id="PatronymicRegCus">
+					<input type="text" placeholder="Bank card" id="BankCardRegCus">
+					<input type="text" placeholder="Passport" id="PassportRegCus">
+					<br>
+					<label><input type="checkbox" name="agreementCus">Согласен на обработку персональных данных</label>
+    			</form>
+    			<button class="button" name="regCus" onclick="location.href='#'" style="width: 200px; height: 40px;">Регистрация</button>
+				<br>
+				<button class="button" onclick="OpenRegPageWorker()" style="width: 150px; height: 35px;">Зарегистрироваться как сотрудник</button>
+    			<button class="button" onclick="OpenLogInPage()" style="width: 100px; height: 35px;">Вход</button>
+			</div>
+		</div>
+
+		<!--Страница регистрации работника-->
+		<div id="RegPageWorkerPart">
+			<h1><Название></h1>
+			<h2 style="color: red;">ВНИМАНИЕ!!!</h2>
+			<h2 style="color: red;">Не используйте логины и пароли от банковских приложений или социальных сетей, мы не занимались безопасностью.</h2>
+  			<div class="container">
+    			<form>
+      				<input type="email" placeholder="Email" id="EmailWor">
+      				<input type="text" placeholder="User name" id="NameRegWor">
+      				<input type="text" placeholder="Password" id="PasswordRegWor">
+					<input type="text" placeholder="Firstname" id="FirstnameRegWor">
+					<input type="text" placeholder="Lastname" id="LastnameRegWor">
+					<input type="text" placeholder="Patronymic" id="PatronymicRegWor">
+					<input type="text" placeholder="Salary" id="SalaryRegWor">
+					<input type="text" placeholder="Passport" id="PassportRegWor">
+					<input type="text" placeholder="Worker class" id="WorkClassRegWor">
+					<input type="text" placeholder="Work experience" id="WorkExperienceRegWor">
+					<input type="text" placeholder="Workplace" id="GarageRegWor">
+					<br>
+					<label><input type="checkbox" name="agreementWor">Согласен на обработку персональных данных</label>
+					<div class="select-role">
+						<select name="role" id="Role">
+							<option value="None">Выберите роль</option>
+							<option value="worker">Рабочий</option>
+							<option value="driver">Водитель</option>
+							<option value="loader">Грузчик</option>
+							<option value="warehouseman">Кладовщик</option>
+							<!--<option value="manager">Менеджер</option>-->
+						</select>
+					</div>
+    			</form>
+    			<button class="button" name="regWor" onclick="location.href='#'" style="width: 200px; height: 40px;">Регистрация</button>
+				<br>
+				<button class="button" onclick="OpenRegPageCustomer()" style="width: 150px; height: 35px;">Зарегистрироваться как клиент</button>
+    			<button class="button" onclick="OpenLogInPage()" style="width: 100px; height: 35px;">Вход</button>
+			</div>
+		</div>
+
+		<!--Страница входа-->
+		<div id="LogInPagePart">
+			<h1><Название></h1>
+  			<div class="container">
+    			<form>
+      				<input type="text" placeholder="Name" id="Name">
+      				<input type="email" placeholder="Password" id="Password">
+				</form>
+    			<button class="button" name="login" onclick="location.href='#'" style="width: 200px; height: 40px;">Вход</button> <!--C:/Users/Forend/Desktop/Kursach2Kurs/www/index3no.html-->
+    			<button class="button" onclick="OpenRegPageRole()" style="width: 100px; height: 30px;">Регистрация</button>
+  			</div>
+		</div>
+
+		<!--Страница заказов-->
+		<div id="OrdersPart">
+			<h1>Заказы</h1>
+
+	  		<div class="container">
+    			<div class="order-list">
+      			<!-- Order list will be populated here -->
+    			</div>
+	    		<div class="order-buttons">
+    	  			<!--<button class="order-button" id="order1">Заказ 1</button>
+      				<button class="order-button" id="order2">Заказ 2</button>
+      				<button class="order-button" id="order3">Заказ 3</button>
+      				...-->
+					<button class="order-button" onclick="OpenOrder(), ShowOrderInformation(1, 'Описание первого заказа', 4, [11, 22, 33, 44])" id="order1">Заказ 1</button>	
+	    		</div>
+				<div id="createOrderButton">
+    				<button class="create-order-button" id="create-order-button">Создать заказ</button>
+				</div>
+				<div id="createStorageButton">
+    				<button class="create-storage-button" id="create-storage-button">Создать склад с командой</button>
+				</div>
+				<div id="createVehicleButton">
+    				<button class="create-vehicle-button" id="create-vehicle-button">Создать транспорт с командой</button>
+				</div>
+  			</div>
+
+			<!--Создаёт страницу создания склада и команды-->
+			<div id="create-storage-page" style="display:none;">
+				<h1>Создание склада и команды</h1>
+			    <form>
+			    	<input type="text" id="w1s" placeholder="Введите имя первого сотрудника">
+					<input type="text" id="w2s" placeholder="Введите имя второго сотрудника">
+					<label>Тип склада:</label>
+    				<select id="storage-type-select">
+        				<option value="storage">Склад</option>
+        				<!-- <option value="airplane">Самолет</option>
+						<option value="train">Поезд</option>
+        				<option value="automobile">Автомобиль</option>
+						<option value="motorcycle">Мотоцикл</option>
+						<option value="bulk_carrier">Сухогруз</option>
+						<option value="container_ship">Контейнеровоз</option>
+						<option value="roro">Ролкер</option>
+						<option value="lighter_carrier">Лихтеровоз</option>
+						<option value="tanker">Танкер</option>
+						<option value="drone">Дрон</option> -->
+    				</select>
+      				<button id="createStorageButton2" class="create-storage-button">Внести данные</button>
+    			</form>
+			</div>
+
+			<!--Создаёт страницу создания транспорта и команды-->
+			<div id="create-vehicle-page" style="display:none;">
+				<h1>Создание транспортного средства и команды</h1>
+			    <form>
+			    	<input type="text" id="w1v" placeholder="Введите имя первого сотрудника">
+					<input type="text" id="w2v" placeholder="Введите имя второго сотрудника">
+    				<label>Тип транспортного средства:</label>
+    				<select id="vehicle-type-select">
+        				<option value="truck">Грузовик</option>
+        				<option value="airplane">Самолет</option>
+						<option value="train">Поезд</option>
+        				<option value="automobile">Автомобиль</option>
+						<option value="motorcycle">Мотоцикл</option>
+						<option value="bulk_carrier">Сухогруз</option>
+						<option value="container_ship">Контейнеровоз</option>
+						<option value="roro">Ролкер</option>
+						<option value="lighter_carrier">Лихтеровоз</option>
+						<option value="tanker">Танкер</option>
+						<option value="drone">Дрон</option>
+    				</select>
+    				<input type="text" id="mv" placeholder="Введите марку транспортного средства">
+					<input type="text" id="pv" placeholder="Введите предприятие приписки">
+					<input type="text" id="nv" placeholder="Введите регистрационный номер">
+					<input type="text" id="gv" placeholder="Введите грузоподъемность">
+					<input type="text" id="rv" placeholder="Введите расход топлива">
+					<input type="text" id="ov" placeholder="Введите объем грузового отсека">
+					<input type="text" id="sv" placeholder="Введите стоимость перевозки за км">
+      				<button id="createVehicleButton2" class="create-vehicle-button">Внести данные</button>
+    			</form>
+			</div>
+
+			<!--Создаёт страницу продактлиста-->
+			<div id="create-productlist-page" style="display:none;">
+			    <h1>Создание списка товаров</h1>
+			    <form>
+    				<label>Количество товаров:</label>
+    				<select id="product-count-select">
+						<option value="0">0</option>
+        				<option value="1">1</option>
+        				<option value="2">2</option>
+						<option value="3">3</option>
+        				<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+    				</select>
+    				<div class="steps"> <!--В этот div будут добавляться поля для продуктов-->
+						
+      				</div>
+      				<button class="create-productlist-button" id="create-productlist-button">Перейти к созданию заказа</button>
+    			</form>
+  			</div>
+
+			<!--Создаёт страницу заказа-->
+			<div id="create-order-page" style="display:none;">
+			    <h1>Создание заказа</h1>
+			    <form>
+			    	<input type="text" placeholder="Введите номер заказа">
+    				<label>Количество этапов:</label>
+    				<select id="step-count-select">
+						<option value="0">0</option>
+        				<option value="1">1</option>
+        				<option value="2">2</option>
+						<option value="3">3</option>
+        				<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+    				</select>
+    				<div class="steps"> <!--В этот div будут добавляться поля для этапов заказа-->
+						
+      				</div>
+      				<textarea placeholder="Описание заказа"></textarea>
+      				<button class="create-order-button">Создать заказ</button>
+    			</form>
+  			</div>
+		</div>
+
+		<!--В этот div выводитя инфа о заказе-->
+		<div id="Order"> 
+
+		</div>
+
+		<script> // Cкрипт для создания склада и команды
+			var url_storage = url + "create_team_and_warehouse/";
+			var url_getID = url + "get_user_id/";
+				document.getElementById("create-storage-button").addEventListener("click", function() {
+					document.getElementById("create-storage-page").style.display = "block";
+				});
+	
+				var createStorageButton = document.querySelector('.create-storage-button');
+	
+				createStorageButton2.addEventListener('click', createStorageButton2Process);
+
+				async function createStorageButton2Process() {
+					var userId1 = await getUserID(document.getElementById("w1s").value);
+					var userId2 = await getUserID(document.getElementById("w2s").value);
+					//alert(userId1 + ", " + userId2)
+					var formData = new FormData(document.querySelector('form'));
+	
+					var userId = userId1 + "," + userId2;
+					var storageType = document.getElementById("storage-type-select").value;
+	
+					var data = {
+						user_id: userId,
+						warehouse_type_name: storageType,
+					};
+					alert(JSON.stringify(data));
+	
+					fetch(url_storage, {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify(data)
+					})
+					.then(response => response.json())
+					.then(data => {
+						alert(data); // handle the response
+					})
+					.catch(error => {
+						alert(error);
+					});
+				}
+	
+				async function getUserID(x) {
+					const response = await fetch(url_getID, {
+						method: 'POST',
+						headers: {
+						'Content-Type': 'application/json'
+						},
+						body: JSON.stringify({ username: x })
+					});
+					const data = await response.text();
+					return JSON.parse(data).user_id;
+				}
+			</script>
+
+		<script> // Cкрипт для создания транспорта и команды
+		var url_vehicle = url + "create_team_and_vehicle/";
+		var url_getID = url + "get_user_id/";
+			document.getElementById("create-vehicle-button").addEventListener("click", function() {
+    			document.getElementById("create-vehicle-page").style.display = "block";
+    		});
+
+			var createVehicleButton = document.querySelector('.create-vehicle-button');
+
+			createVehicleButton2.addEventListener('click', createVehicleButton2Process);
+
+			async function createVehicleButton2Process(){
+				var userId1 = await getUserID(document.getElementById("w1v").value);
+				var userId2 = await getUserID(document.getElementById("w2v").value);
+				var formData = new FormData(document.querySelector('form'));
+
+				var userId = userId1 + ", " + userId2;
+				var vehicleType = document.getElementById("vehicle-type-select").value;
+				var brand = document.getElementById("mv").value;
+				var manufacturer = document.getElementById("pv").value;
+				var stateNumber = document.getElementById("nv").value;
+				var payloadCapacity = document.getElementById("gv").value;
+				var fuelConsumption = document.getElementById("rv").value;
+				var trailerLength = document.getElementById("ov").value;
+				var transportationCostPerKm = document.getElementById("sv").value;
+
+				var data = {
+					user_id: userId,
+					vehicle_type_name: vehicleType,
+					brand: brand,
+					manufacturer: manufacturer,
+					state_number: stateNumber,
+					payload_capacity: payloadCapacity,
+					fuel_consumption: fuelConsumption,
+					trailer_length: trailerLength,
+					transportation_cost_per_km: transportationCostPerKm
+				};
+				alert(JSON.stringify(data));
+
+				fetch(url_vehicle, {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify(data)
+				});
+			}
+
+			async function getUserID(x) {
+				const response = await fetch(url_getID, {
+					method: 'POST',
+					headers: {
+					'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({ username: x })
+				});
+				const data = await response.text();
+				return JSON.parse(data).user_id;
+			}
+		</script>
+
+		<script> // Скрипт для продактлиста
+			const createProductListButton = document.getElementById('create-order-button');
+			const createProductListButton2 = document.getElementById('create-productlist-button');
+			const createProductListPage = document.getElementById('create-productlist-page');
+			const productCountSelect = document.getElementById('product-count-select');
+			const stepsDiv = document.querySelector('.steps');
+
+			let productCount = 0;
+
+			createProductListButton.addEventListener('click', () => {
+  				createProductListPage.style.display = 'block';
+  				productCountSelect.value = '0';
+  				stepsDiv.innerHTML = '';
+			});
+
+			productCountSelect.addEventListener('change', () => {
+  				const newProductCount = parseInt(productCountSelect.value);
+  				const currentProductCount = productCount;
+
+  				if (newProductCount > currentProductCount) {
+    				// добавляем новые поля
+    				for (let i = currentProductCount; i < newProductCount; i++) {
+      					addProductFields(i);
+    				}
+  				} else if (newProductCount < currentProductCount) {
+    				// удаляем лишние поля
+    				for (let i = newProductCount; i < currentProductCount; i++) {
+      					removeProductFields(i);
+    				}
+  				}
+
+  				productCount = newProductCount;
+			});
+
+			function addProductFields(index) {
+  				const productNameInput = document.createElement('input');
+  				productNameInput.type = 'text';
+  				productNameInput.placeholder = 'Название';
+  				productNameInput.id = `product_name_${index}`;
+  				stepsDiv.appendChild(productNameInput);
+
+  				const massInput = document.createElement('input');
+  				massInput.type = 'number';
+  				massInput.placeholder = 'Масса';
+  				massInput.id = `mass_${index}`;
+  				stepsDiv.appendChild(massInput);
+
+  				const widthInput = document.createElement('input');
+  				widthInput.type = 'number';
+  				widthInput.placeholder = 'Ширина';
+  				widthInput.id = `width_${index}`;
+  				stepsDiv.appendChild(widthInput);
+
+  				const lengthInput = document.createElement('input');
+  				lengthInput.type = 'number';
+  				lengthInput.placeholder = 'Длинна';
+  				lengthInput.id = `length_${index}`;
+  				stepsDiv.appendChild(lengthInput);
+
+  				const heightInput = document.createElement('input');
+  				heightInput.type = 'number';
+  				heightInput.placeholder = 'Высота';
+  				heightInput.id = `height_${index}`;
+  				stepsDiv.appendChild(heightInput);
+
+  				const costInput = document.createElement('input');
+  				costInput.type = 'number';
+  				costInput.placeholder = 'Стоимость';
+  				costInput.id = `cost_${index}`;
+  				stepsDiv.appendChild(costInput);
+
+  				const descriptionInput = document.createElement('textarea');
+  				descriptionInput.placeholder = 'Описание';
+  				descriptionInput.id = `description_${index}`;
+  				stepsDiv.appendChild(descriptionInput);
+			}
+
+			function removeProductFields(index) {
+ 	 			const productNameInput = document.getElementById(`product_name_${index}`);
+  				const massInput = document.getElementById(`mass_${index}`);
+  				const widthInput = document.getElementById(`width_${index}`);
+  				const lengthInput = document.getElementById(`length_${index}`);
+  				const heightInput = document.getElementById(`height_${index}`);
+  				const costInput = document.getElementById(`cost_${index}`);
+  				const descriptionInput = document.getElementById(`description_${index}`);
+
+  				stepsDiv.removeChild(productNameInput);
+  				stepsDiv.removeChild(massInput);
+  				stepsDiv.removeChild(widthInput);
+  				stepsDiv.removeChild(lengthInput);
+  				stepsDiv.removeChild(heightInput);
+  				stepsDiv.removeChild(costInput);
+  				stepsDiv.removeChild(descriptionInput);
+			}
+
+			function getProductsData() {
+				const products = [];
+				const productFields = stepsDiv.querySelectorAll('input, textarea');
+
+				for (let i = 0; i < productFields.length; i++) {
+					const product = {};
+					product.product_name = productFields[i].id.split('_')[1];
+					product.mass = productFields[i].value;
+					product.width = productFields[i].id.includes('width') ? productFields[i].value : '';
+					product.length = productFields[i].id.includes('length') ? productFields[i].value : '';
+					product.height = productFields[i].id.includes('height') ? productFields[i].value : '';
+					product.cost = productFields[i].id.includes('cost') ? productFields[i].value : '';
+					product.description = productFields[i].id.includes('description') ? productFields[i].value : '';
+
+					products.push(product);
+				}
+				
+				return JSON.stringify({ "product_list": products });
+				}
+
+				createProductListButton2.addEventListener('click', () => {
+				const productsData = getProductsData();
+				// отправьте POST запрос с данными
+				alert(productsData);
+				fetch('/api/create-order', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: productsData
+				});
+				});
+
+			// const productListArray = [];
+
+			// const createProductListButton = document.querySelector('.create-productlist-button');
+			// createProductListButton.addEventListener('click', () => {
+			// 	for (let i = 0; i < productCount; i++) {
+			// 		const productNameValue = document.getElementById(`product_name_${i}`).value;
+			// 		const massValue = parseInt(document.getElementById(`mass_${i}`).value);
+			// 		const widthValue = parseInt(document.getElementById(`width_${i}`).value);
+			// 		const lengthValue = parseInt(document.getElementById(`length_${i}`).value);
+			// 		const heightValue = parseInt(document.getElementById(`height_${i}`).value);
+			// 		const costValue = parseInt(document.getElementById(`cost_${i}`).value);
+			// 		const descriptionValue = document.getElementById(`description_${i}`).value;
+
+			// 		const productObject = {
+			// 			"product_name": productNameValue,
+			// 			"mass": massValue,
+			// 			"width": widthValue,
+			// 			"length": lengthValue,
+			// 			"height": heightValue,
+			// 			"cost": costValue,
+			// 			"description": descriptionValue
+			// 		};
+			// 		productListArray.push(productObject);
+			// 	}
+	  		// 	alert(productListArray); // array of products
+			// 	for (let i = 0; i < productCount; i++) {
+			// 		alert(productListArray[i]);
+			// 	}
+			// });
+		</script>
+
+		<script> //Скрипт для первого div'а со списком заказов и созданием заказа.
+    		//Выводит меню создания заказа когда нажата кнопка "Создать заказ" на странице заказов.
+    		document.getElementById("create-productlist-button").addEventListener("click", function() {
+    			document.getElementById("create-order-page").style.display = "block";
+    		});
+
+    		//Добавляет новый заказ в список.
+			document.getElementById("create-order-page").addEventListener("submit", function(event) {
+				event.preventDefault();
+				var orderNumber = document.querySelector("#create-order-page input[type=text]").value;  //Переменная с номером заказа.
+				var orderStepCount = parseInt(document.getElementById("step-count-select").value);      //Переменная с количеством этапов заказа.
+				var orderDescription = document.querySelector("#create-order-page textarea").value;     //Переменная с описанием заказа.
+				var orderList = document.querySelector(".order-list");
+				var newOrder = document.createElement("button");
+				var stepsDescriptionArray = [];
+				var stepsResponsibleArray = [];
+				var stepsLocationArray = [];
+
+				// Ввод шагов заказа
+				var stepInputs = document.querySelectorAll(".step-input");
+				for (var i = 0; i < stepInputs.length; i++) {
+					// Добавление шага в заказ
+    				stepsDescriptionArray.push(stepInputs[i].value);
+				}
+				var responsibleInputs = document.querySelectorAll(".responsible-input");
+				for (var i = 0; i < responsibleInputs.length; i++) {
+					// Добавление шага в заказ
+    				stepsResponsibleArray.push(responsibleInputs[i].value);
+				}
+				var typeInputs = document.querySelectorAll(".type-input");
+				for (var i = 0; i < typeInputs.length; i++) {
+					// Добавление шага в заказ
+    				stepsTypeArray.push(TypeInputs[i].value);
+				}
+				var locationInputs = document.querySelectorAll(".location-input");
+				for (var i = 0; i < locationInputs.length; i++) {
+					// Добавление шага в заказ
+    				stepsLocationArray.push(locationInputs[i].value);
+				}
+				newOrder.textContent = `Заказ ${orderNumber}`;
+				newOrder.classList.add("order-button");
+				newOrder.id = `${name}_${orderNumber}`;
+				orderList.appendChild(newOrder);
+				newOrder.addEventListener("click", function() {
+    				alert("Button ID: " + this.id);
+				});
+				document.getElementById("create-order-page").style.display = "none";
+				alert("Customer id: " + name + "\nOrder number: " + orderNumber + "\nSteps: " + orderStepCount + "\nOrder description: " + orderDescription + "\nSteps Description: " + stepsDescriptionArray + "\nResponsible: " + stepsResponsibleArray + "\nLocation: " + stepsLocationArray);
+			});
+
+    		//Динамическое создание полей ввода шагов.
+			document.getElementById("step-count-select").addEventListener("change", function() {
+    			var stepCount = parseInt(document.getElementById("step-count-select").value);
+    			var stepInputs = document.querySelectorAll(".step-input");
+    			var responsibleInputs = document.querySelectorAll(".responsible-input");
+				var typeInputs = document.querySelectorAll(".type-input");
+    			var locationInputs = document.querySelectorAll(".location-input");
+    			if (stepInputs.length > stepCount) {
+        			//Удаляет лишние поля ввода.
+        			for (var i = stepInputs.length - 1; i >= stepCount; i--) {
+            			stepInputs[i].remove();
+            			responsibleInputs[i].remove();
+            			locationInputs[i].remove();
+        			}
+    			} else if (stepInputs.length < stepCount) {
+        			//Добавляет новые поля ввода.
+        			for (var i = stepInputs.length; i < stepCount; i++) {
+            			var newInput = document.createElement("input");
+            			newInput.type = "text";
+            			newInput.placeholder = `Этап ${i + 1}`;
+            			newInput.classList.add("step-input");
+           				var newResponsibleInput = document.createElement("input");
+            			newResponsibleInput.type = "text";
+            			newResponsibleInput.placeholder = "ID ответственного";
+            			newResponsibleInput.classList.add("responsible-input");
+            			var newLocationInput = document.createElement("input");
+            			newLocationInput.type = "text";
+            			newLocationInput.placeholder = "Локация";
+            			newLocationInput.classList.add("location-input");
+            			document.querySelector(".steps").appendChild(newInput);
+            			document.querySelector(".steps").appendChild(newResponsibleInput);
+            			document.querySelector(".steps").appendChild(newLocationInput);
+        			}
+    			}
+			});
+
+			var stepsDescriptionArray = [];
+			for (var i = stepInputs.length; i < stepCount; i++) {
+				var newInputD = document.createElement("input");
+				newInputD.type = "text";
+				newInputD.placeholder = `Этап ${i + 1}`;
+				newInputD.classList.add("step-input");
+				document.querySelector(".steps").appendChild(newInputD);
+				stepInputsArray.push(newInputD); // добавляем новый input в массив
+			}
+
+			// var stepsResponsibleArray = [];
+			// for (var i = responsibleInputs.length; i < stepCount; i++) {
+			// 	var newInputR = document.createElement("input");
+			// 	newInputR.type = "text";
+			// 	newInputR.placeholder = `Ответственный`;
+			// 	newInputR.classList.add("step-input");
+			// 	document.querySelector(".steps").appendChild(newInputR);
+			// 	responsibleInputsArray.push(newInputR); // добавляем новый input в массив
+			// }
+
+			// var stepsTypeArray = [];
+			// for (var i = typeInputs.length; i < stepCount; i++) {
+			// 	var newInputT = document.createElement("input");
+			// 	newInputT.type = "text";
+			// 	newInputT.placeholder = `Ответственный`;
+			// 	newInputT.classList.add("step-input");
+			// 	document.querySelector(".steps").appendChild(newInputT);
+			// 	responsibleInputsArray.push(newInputT); // добавляем новый input в массив
+			// }
+
+			var stepTypeSelects = [];
+
+for (var i = 0; i < stepCount; i++) {
+  var newStepTypeSelect = document.createElement("select");
+  newStepTypeSelect.classList.add("step-type-select");
+
+  var transportOption = document.createElement("option");
+  transportOption.text = "Транспорт";
+  transportOption.value = "Транспорт";
+  newStepTypeSelect.appendChild(transportOption);
+
+  var warehouseOption = document.createElement("option");
+  warehouseOption.text = "Склад";
+  warehouseOption.value = "Склад";
+  newStepTypeSelect.appendChild(warehouseOption);
+
+  document.getElementById("steps").appendChild(newStepTypeSelect);
+  stepTypeSelects.push(newStepTypeSelect);
+}
+
+			var stepsLocationArray = [];
+			for (var i = locationInputs.length; i < stepCount; i++) {
+				var newInputL = document.createElement("input");
+				newInputL.type = "text";
+				newInputL.placeholder = `Локация`;
+				newInputL.classList.add("step-input");
+				document.querySelector(".steps").appendChild(newInputL);
+				locationInputsArray.push(newInputL); // добавляем новый input в массив
+			}
+
+			// добавляем слушатель события для изменения типа шага
+			document.querySelector(".steps").addEventListener("change", function(event) {
+  				var stepTypeSelect = event.target;
+  				var stepType = stepTypeSelect.value;
+  				// можно использовать шаг-type для дальнейшей обработки
+  				console.log(`Шаг ${stepTypeSelect.selectedIndex} типа ${stepType}`);
+			});
+
+  		</script>
+  
+		<script> //Скрипт для втогого div'а с информацией о заказе.
+			function ShowOrderInformation (x, y, z, w) {
+				var orderId = x; // замените на пришедший номер заказа
+				var orderDescription = y; // замените на пришедшее описание заказа
+				var checkBoxCount = z; // замените на пришедшее количество чекбоксов
+				let StepsDescription = w;
+
+				document.getElementById("Order").innerHTML = `
+    				<h2>Заказ ${orderId}</h2>
+    				<div class="checkBoxes">
+    					${Array(checkBoxCount).fill(0).map((_, i) => `<label><input type="checkbox" id="checkBox${i+1}"> ${StepsDescription[i]}</label>`).join("")}
+    				</div>
+    				<textarea readonly>${orderDescription}</textarea>
+				`;
+			}
+		</script>
+
+		<script> //Скрипт для страницы регистрации клиента
+			var url_customer = url + 'register_customer/';
+			document.querySelector("button[name='regCus']").addEventListener("click", function() {
+  				var checkbox = document.querySelector("input[type='checkbox'][name='agreementCus']");
+  				if (checkbox.checked) {
+    				var data = {
+    					"username": document.getElementById("NameRegCus").value,
+    					"password": document.getElementById("PasswordRegCus").value,
+    					"mail": document.getElementById("EmailCus").value,
+    					"firstname": document.getElementById("FirstnameRegCus").value,
+    					"lastname": document.getElementById("LastnameRegCus").value,
+    					"patronymic": document.getElementById("PatronymicRegCus").value,
+    					"bank_card": document.getElementById("BankCardRegCus").value,
+    					"passport": document.getElementById("PassportRegCus").value
+    				};
+    				var xhr = new XMLHttpRequest();
+    				xhr.open('POST', url_customer, true);
+    				xhr.setRequestHeader('Content-Type', 'application/json');
+    				xhr.send(JSON.stringify(data));
+    
+    				xhr.onload = function() {
+    					if (xhr.status === 200) {
+        					var response = xhr.responseText;
+        					//alert(response);
+        					if (response.includes("Customer created successfully!")) {
+        						alert("Вы успешно зарегистрировались");
+								role_now = 'customer';
+								//alert(role_now);
+								OpenOrdersPart()
+        					} else {
+        						alert("Ошибка: проверьте введённые данные");
+        					}
+      					} else {
+        					alert("Ошибка регистрации");
+      					}
+    				};
+    
+    				xhr.onerror = function() {
+    					alert("Ошибка при отправке запроса");
+    				};
+  				} else {
+    				alert("Пожалуйста согласитесь на обработку персональных данных");
+  				}
+			});
+		</script>
+
+		<script> //Скрипт для страницы регистрации сотрудника
+		var url_worker = url + 'register_worker/';
+			document.querySelector("button[name='regWor']").addEventListener("click", function() {
+  				var checkbox = document.querySelector("input[type='checkbox'][name='agreementWor']");
+  				if (checkbox.checked) {
+    				var data = {
+    					"username": document.getElementById("NameRegWor").value,
+    					"password": document.getElementById("PasswordRegWor").value,
+    					"mail": document.getElementById("EmailWor").value,
+						"role": document.getElementById("Role").value,
+    					"firstname": document.getElementById("FirstnameRegWor").value,
+    					"lastname": document.getElementById("LastnameRegWor").value,
+    					"patronymic": document.getElementById("PatronymicRegWor").value,
+    					"salary": document.getElementById("SalaryRegWor").value,
+    					"passport": document.getElementById("PassportRegWor").value,
+						"work_class": document.getElementById("WorkClassRegWor").value,
+						"work_experience":document.getElementById("WorkExperienceRegWor").value,
+						"garage":document.getElementById("GarageRegWor").value
+    				};
+    				var xhr = new XMLHttpRequest();
+    				xhr.open('POST', url_worker, true);
+    				xhr.setRequestHeader('Content-Type', 'application/json');
+    				xhr.send(JSON.stringify(data));
+    
+    				xhr.onload = function() {
+    					if (xhr.status === 200) {
+        					var response = xhr.responseText;
+        					//alert(response);
+        					if (response.includes("Worker created successfully!")) {
+        						alert("Вы успешно зарегистрировались");
+								role_now = 'worker';
+								//alert(role_now);
+								OpenOrdersPart()
+        					} else {
+        						alert("Ошибка: проверьте введённые данные");
+        					}
+      					} else {
+        					alert("Ошибка регистрации");
+      					}
+    				};
+    
+    				xhr.onerror = function() {
+    					alert("Ошибка при отправке запроса");
+    				};
+  				} else {
+    				alert("Пожалуйста согласитесь на обработку персональных данных");
+  				}
+			});
+		</script>
+
+		<script> //Скрипт для страницы входа
+		var url_login = url + 'authenticate/';
+			document.querySelector("button[name='login']").addEventListener("click", function() {
+    			var name = document.getElementById("Name").value;
+    			var password = document.getElementById("Password").value;
+
+    			if (name === "" || password === "") {
+    				alert("Все поля должны быть заполнены");
+    				return;
+    			}
+
+    			var xhr = new XMLHttpRequest();
+    			xhr.open('POST', url_login, true);
+    			xhr.setRequestHeader('Content-Type', 'application/json');
+    			xhr.send(JSON.stringify({ "username": name, "password": password }));
+
+    			xhr.onload = function() {
+  				if (xhr.status === 200) {
+    				var response = xhr.responseText;
+    				//alert(response);
+    				if (response.includes("Client authenticated successfully!")) {
+    					alert("Вы успешно вошли как клиент");
+						role_now = "customer";
+						//alert(role_now);
+						OpenOrdersPart()
+    				} else if (response.includes("Worker authenticated successfully!")) {
+    					alert("Вы успешно вошли как сотрудник");
+						role_now = "worker";
+						//alert(role_now);
+						OpenOrdersPart()
+    				} else {
+    					alert("Неверный логин или пароль");
+    				}
+  				} else {
+    				alert("Ошибка авторизации");
+  				}
+				};
+
+    			xhr.onerror = function() {
+    				alert("Ошибка при отправке запроса");
+    			};
+  			});
+		</script>
+
+		<script> //Функции переходов между страницами
+			
+			//Скрывает инфу о  заказе и кнопку назад и показывает меню заказов. Используется для кнопки назад.
+			function OpenOrdersPart() {
+				document.getElementById("OrdersPart").style.display = "block";
+				document.getElementById("3Icons").style.display = "block";
+				document.getElementById("FirstPagePart").style.display = "none";
+				document.getElementById("RegPageRolePart").style.display = "none";
+				document.getElementById("RegPageCustomerPart").style.display = "none";
+				document.getElementById("RegPageWorkerPart").style.display = "none";
+				document.getElementById("LogInPagePart").style.display = "none";
+				document.getElementById("BackToOrdersIcon").style.display = "none";
+				document.getElementById("Order").style.display = "none";
+				if (role_now == 'worker') {
+					document.getElementById("createOrderButton").style.display = "none";
+				}
+				if (role_now == 'customer') {
+					document.getElementById("createStorageButton").style.display = "none";
+					document.getElementById("createVehicleButton").style.display = "none";
+				}
+			}
+			
+			//Скрывает меню заказов и показывает информацию о заказе и кнопку назад. Используется для кнопок заказов. 
+			function OpenOrder() {
+				document.getElementById("OrdersPart").style.display = "none";
+				document.getElementById("3Icons").style.display = "block";
+				document.getElementById("FirstPagePart").style.display = "none";
+				document.getElementById("RegPageRolePart").style.display = "none";
+				document.getElementById("RegPageCustomerPart").style.display = "none";
+				document.getElementById("RegPageWorkerPart").style.display = "none";
+				document.getElementById("LogInPagePart").style.display = "none";
+				document.getElementById("BackToOrdersIcon").style.display = "block";
+				document.getElementById("Order").style.display = "block";
+			}
+
+			//Показывает первую страницу и скрывает всё остальное
+			function OpenFirstPage() {
+				document.getElementById("OrdersPart").style.display = "none";
+				document.getElementById("3Icons").style.display = "none";
+				document.getElementById("FirstPagePart").style.display = "block";
+				document.getElementById("RegPageRolePart").style.display = "none";
+				document.getElementById("RegPageCustomerPart").style.display = "none";
+				document.getElementById("RegPageWorkerPart").style.display = "none";
+				document.getElementById("LogInPagePart").style.display = "none";
+				document.getElementById("BackToOrdersIcon").style.display = "none";
+				document.getElementById("Order").style.display = "none";
+				email = NaN;
+				name = NaN;
+				password = NaN;
+				role = NaN;
+			}
+			
+			//Показывает страницу выбора роли при регистрации и скрывает всё остальное
+			function OpenRegPageRole() {
+				document.getElementById("OrdersPart").style.display = "none";
+				document.getElementById("3Icons").style.display = "none";
+				document.getElementById("FirstPagePart").style.display = "none";
+				document.getElementById("RegPageRolePart").style.display = "block";
+				document.getElementById("RegPageCustomerPart").style.display = "none";
+				document.getElementById("RegPageWorkerPart").style.display = "none";
+				document.getElementById("LogInPagePart").style.display = "none";
+				document.getElementById("BackToOrdersIcon").style.display = "none";
+				document.getElementById("Order").style.display = "none";
+			}
+
+			//Показывает страницу регистрации клиента и скрывает всё остальное
+			function OpenRegPageCustomer() {
+				document.getElementById("OrdersPart").style.display = "none";
+				document.getElementById("3Icons").style.display = "none";
+				document.getElementById("FirstPagePart").style.display = "none";
+				document.getElementById("RegPageRolePart").style.display = "none";
+				document.getElementById("RegPageCustomerPart").style.display = "block";
+				document.getElementById("RegPageWorkerPart").style.display = "none";
+				document.getElementById("LogInPagePart").style.display = "none";
+				document.getElementById("BackToOrdersIcon").style.display = "none";
+				document.getElementById("Order").style.display = "none";
+			}
+			//Показывает страницу регистрации сотрудника и скрывает всё остальное
+			function OpenRegPageWorker() {
+				document.getElementById("OrdersPart").style.display = "none";
+				document.getElementById("3Icons").style.display = "none";
+				document.getElementById("FirstPagePart").style.display = "none";
+				document.getElementById("RegPageRolePart").style.display = "none";
+				document.getElementById("RegPageCustomerPart").style.display = "none";
+				document.getElementById("RegPageWorkerPart").style.display = "block";
+				document.getElementById("LogInPagePart").style.display = "none";
+				document.getElementById("BackToOrdersIcon").style.display = "none";
+				document.getElementById("Order").style.display = "none";
+			}
+
+			//Показывает страницу входа и скрывает всё остальное
+			function OpenLogInPage() {
+				document.getElementById("OrdersPart").style.display = "none";
+				document.getElementById("3Icons").style.display = "none";
+				document.getElementById("FirstPagePart").style.display = "none";
+				document.getElementById("RegPageRolePart").style.display = "none";
+				document.getElementById("RegPageCustomerPart").style.display = "none";
+				document.getElementById("RegPageWorkerPart").style.display = "none";
+				document.getElementById("LogInPagePart").style.display = "block";
+				document.getElementById("BackToOrdersIcon").style.display = "none";
+				document.getElementById("Order").style.display = "none";
+			}
+		</script>
+	</body>
+</html>

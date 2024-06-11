@@ -1,0 +1,92 @@
+body {
+    /*background-image: url("C:/Users/Forend/Desktop/Kursach2Kurs/www/images/stone-wall.jpg");
+    background-size: cover;
+    background-position: center;*/
+	text-align: center;
+	font-family: Arial, sans-serif;
+}
+		  
+.logo {
+	margin-top: 50px;
+	margin-bottom: 100px;
+}
+
+.button {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.content{
+	width:100vw;
+	height:100vh;
+}
+
+.container {
+	width: 50%;
+	margin: 0 auto;
+}
+
+.input-field {
+	margin-bottom: 20px;
+}
+
+.select-role {
+	margin-top: 20px;
+}
+
+.select-role select {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+order-buttons {
+	margin-top: 20px;
+}
+
+.order-button {
+	margin-bottom: 10px;
+}
+
+.order-button {
+	background-color: #4CAF50;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.icons {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+  
+  .icon-profile {
+	/*background-color: #4CAF50;*/
+	color: #fff;
+	padding: 5px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+  
+  .icon-settings {
+	/*background-color: #4CAF50;*/
+	color: #fff;
+	padding: 5px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+  
+  .icon-logout {
+	/*background-color: #4CAF50;*/
+	color: #fff;
+	padding: 5px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
